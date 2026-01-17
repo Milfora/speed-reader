@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Speed Reader</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"
+      integrity="sha512-MbJ0YHBR7RnnLMDPc/9HEiAze2iSFbfn2g1KOZyJ4gFYXqKc6W7gqBYlM+Y9AyvD/PSP1e1GgH4rS5qQvOL1mA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js"
+      integrity="sha512-F6POf8VQjWmrPc6KOMQ5IPMhXxDXhrTu2oMTzV2A50gHf4v+XgG9v6UaMBe/BLV0EIdSgNHvtE3UAFs/3tN2yA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+  </head>
+  <body>
+    <main class="app">
+      <section class="hero">
+        <div>
+          <p class="eyebrow">Speed Reader</p>
+          <h1>Absorb more, faster.</h1>
+          <p class="subtitle">
+            Upload a text, Word (.docx), or PDF file and let each word appear in a
+            focused view. Adjust the pace to match common reading speeds.
+          </p>
+        </div>
+        <div class="display-panel">
+          <p class="display-word" id="displayWord">Ready</p>
+          <p class="display-meta" id="displayMeta">Upload a file or paste text below.</p>
+        </div>
+      </section>
+
+      <section class="controls">
+        <div class="control-group">
+          <label class="control-label" for="fileInput">Upload a file</label>
+          <input
+            id="fileInput"
+            type="file"
+            accept=".txt,.pdf,.docx"
+          />
+          <p class="helper">Supported: .txt, .docx, .pdf</p>
+        </div>
+
+        <div class="control-group">
+          <label class="control-label" for="textInput">Or paste text</label>
+          <textarea
+            id="textInput"
+            rows="4"
+            placeholder="Paste or type text to begin..."
+          ></textarea>
+        </div>
+
+        <div class="control-row">
+          <div class="control-group">
+            <label class="control-label" for="speedSelect">Reading speed</label>
+            <select id="speedSelect">
+              <option value="200">200 WPM · Leisurely</option>
+              <option value="250">250 WPM · Average adult</option>
+              <option value="300" selected>300 WPM · Skilled reader</option>
+              <option value="400">400 WPM · Rapid</option>
+              <option value="500">500 WPM · Very rapid</option>
+              <option value="650">650 WPM · Speed reading</option>
+            </select>
+          </div>
+
+          <div class="control-group">
+            <label class="control-label" for="themeSelect">Theme</label>
+            <select id="themeSelect">
+              <option value="aurora" selected>Aurora</option>
+              <option value="midnight">Midnight</option>
+              <option value="sunset">Sunset</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="control-row buttons">
+          <button id="startBtn" class="primary">Start</button>
+          <button id="pauseBtn">Pause</button>
+          <button id="resetBtn" class="ghost">Reset</button>
+        </div>
+      </section>
+
+      <section class="progress">
+        <div class="progress-bar">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+        <p class="progress-text" id="progressText">0 / 0 words</p>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
