@@ -1,0 +1,241 @@
+:root {
+  color-scheme: light;
+  font-family: "Montserrat", system-ui, sans-serif;
+  background: linear-gradient(135deg, #f4f6ff, #fdf2f8);
+  --panel: #ffffff;
+  --text: #1a1b2f;
+  --muted: #5c607d;
+  --accent: #6c5ce7;
+  --accent-dark: #4b3fc0;
+  --shadow: 0 20px 40px rgba(76, 70, 140, 0.18);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 48px 20px;
+  color: var(--text);
+}
+
+.app {
+  max-width: 980px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 28px;
+  align-items: center;
+}
+
+.eyebrow {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--accent);
+  margin: 0 0 12px;
+  font-weight: 700;
+}
+
+h1 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2.4rem, 3vw, 3.4rem);
+  margin: 0 0 12px;
+}
+
+.subtitle {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.display-panel {
+  background: var(--panel);
+  box-shadow: var(--shadow);
+  border-radius: 20px;
+  padding: 32px;
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.display-word {
+  font-size: clamp(2.6rem, 4vw, 4rem);
+  font-weight: 700;
+  margin: 0;
+  color: var(--accent-dark);
+}
+
+.display-meta {
+  margin: 12px 0 0;
+  color: var(--muted);
+}
+
+.controls {
+  background: var(--panel);
+  border-radius: 24px;
+  padding: 28px;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.control-row {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.control-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+
+.control-label {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+input[type="file"],
+textarea,
+select {
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid #e0e2f1;
+  font-family: inherit;
+  font-size: 0.95rem;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.helper {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.buttons {
+  align-items: center;
+}
+
+button {
+  padding: 12px 24px;
+  border-radius: 999px;
+  border: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 20px rgba(108, 92, 231, 0.25);
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+  box-shadow: none;
+  transform: none;
+}
+
+.primary {
+  background: var(--accent);
+  color: white;
+}
+
+.ghost {
+  background: transparent;
+  border: 1px solid #d6d6f0;
+}
+
+.progress {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 10px;
+  border-radius: 999px;
+  background: #edeefb;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, #6c5ce7, #9b8fff);
+  transition: width 0.2s ease;
+}
+
+.progress-text {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+body.theme-midnight {
+  background: radial-gradient(circle at top, #14182f, #05060f);
+  color: #f1f2ff;
+}
+
+body.theme-midnight .display-panel,
+body.theme-midnight .controls {
+  background: rgba(17, 21, 40, 0.95);
+}
+
+body.theme-midnight .display-word {
+  color: #89a4ff;
+}
+
+body.theme-midnight .control-label,
+body.theme-midnight .helper,
+body.theme-midnight .display-meta,
+body.theme-midnight .progress-text {
+  color: rgba(241, 242, 255, 0.7);
+}
+
+body.theme-midnight input[type="file"],
+body.theme-midnight textarea,
+body.theme-midnight select {
+  background: #0b0f21;
+  color: #f1f2ff;
+  border-color: #1e2444;
+}
+
+body.theme-sunset {
+  background: linear-gradient(135deg, #fff1e6, #ffe4ec);
+}
+
+body.theme-sunset .display-word {
+  color: #de5b7b;
+}
+
+@media (max-width: 720px) {
+  body {
+    padding: 32px 16px;
+  }
+
+  .display-panel {
+    min-height: 160px;
+  }
+}
